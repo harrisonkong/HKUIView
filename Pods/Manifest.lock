@@ -1,0 +1,25 @@
+PODS:
+  - HKUIViewAutoCornerExtension (1.0.0):
+    - HKUIViewLengthCalculationBasis (~> 1.0.0)
+    - HKUIViewUtilities (~> 1.0.0)
+  - HKUIViewLengthCalculationBasis (1.0.0)
+  - HKUIViewUtilities (1.0.0)
+
+DEPENDENCIES:
+  - HKUIViewAutoCornerExtension (~> 1.0.0)
+  - HKUIViewLengthCalculationBasis (~> 1.0.0)
+
+SPEC REPOS:
+  trunk:
+    - HKUIViewAutoCornerExtension
+    - HKUIViewLengthCalculationBasis
+    - HKUIViewUtilities
+
+SPEC CHECKSUMS:
+  HKUIViewAutoCornerExtension: 88729b9b5cc0c1c16fbbc4f89b5d7af6680c6d61
+  HKUIViewLengthCalculationBasis: b4b1b13e203ae0aa303b109b22416601ca1fc687
+  HKUIViewUtilities: fde58cfef72c916510ed32d6622d587ed79992d3
+
+PODFILE CHECKSUM: 6d31496e2a193b3c5c2677d1194e3dc8cddb73af
+
+COCOAPODS: 1.8.4
