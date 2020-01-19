@@ -3,7 +3,7 @@
 
 ## IMPORTANT!! ##
 
-You **MUST** includ this script at the end of your Podfile or the Inspectables won't work.
+You **MUST** include this script at the end of your Podfile or the Inspectables won't work.
 
 ```
 # This post_install section fixes a bug in CocoaPod that does not allow
@@ -24,8 +24,8 @@ You **MUST** includ this script at the end of your Podfile or the Inspectables w
 ## INTRODUCTION
 This class descends from UIView and provides these enhancements and a designable user interface in Xcode Interface Builder.
 
-### Dynamic Corner Radius 
-This class descends from UIView and provides the funcationalities to calculate a corner radius dynamically base on one of the sides. It uses the methods in HKUIViewAutoCornerExtension as a base.
+### Dynamic Corner Radius
+This class descends from UIView and provides the functionalities to calculate a corner radius dynamically base on one of the sides. It uses the methods in HKUIViewAutoCornerExtension as a base.
 
 ### Border Customization
 It also let users customize the border width, color and alpha value.
@@ -36,11 +36,11 @@ It overrides these four methods to provide the values to `HKUIViewAutoCornerExte
 
 ```
     @objc open func autoCornerRoundingBasis() -> LengthCalculationBasis
-    
+
     @objc open func autoCornerRoundingConstant() -> CGFloat
 
     @objc open func autoCornerRoundingEnabled() -> Bool
-    
+
     @objc open func autoCornerRoundingFactor() -> CGFloat
 
 ```
@@ -53,7 +53,7 @@ It call this method of `HKUIViewAutoCornerExtension` when it needs to redraw.
 
 ## INSTALLATION
 
-Manually: 
+Manually:
 
 Include in your project
 
