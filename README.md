@@ -18,6 +18,17 @@
 
 <img src="./docs/cloudline.png" alt="---line---">
 
+## WHAT IS IT? ##
+`HKUIView` enhances the functionality of UIView by providing these additional features:
+
+### Dynamic Corner Radius 
+This class descends from UIView and provides the funcationalities to calculate a corner radius dynamically base on one of the sides. It uses the methods in HKUIViewAutoCornerExtension as a base.
+
+### Border Customization
+It also let users customize the border width, color and alpha value.
+
+<img src="./docs/cloudline.png" alt="---line---">
+
 ## HOW TO INSTALL IT ##
 
 Use one of the following methods:
@@ -90,15 +101,6 @@ UIView+LengthCalculationBasis.swift
 ```
 
 <img src="./docs/cloudline.png" alt="---line---">
-
-## WHAT IS IT? ##
-`HKUIView` enhances the functionality of UIView by providing these additional features:
-
-### Dynamic Corner Radius 
-This class descends from UIView and provides the funcationalities to calculate a corner radius dynamically base on one of the sides. It uses the methods in HKUIViewAutoCornerExtension as a base.
-
-### Border Customization
-It also let users customize the border width, color and alpha value.
 
 ## HOW TO USE IT ##
 
