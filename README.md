@@ -8,7 +8,7 @@
 
 ## VERSION HISTORY ##
 
-1.0.0 - 2020/02/05 - Initial release
+1.0.0 - 2020/01/18 - Initial release
 
 ## MINIMUM REQUIREMENTS ##
 
@@ -22,7 +22,16 @@
 `HKUIView` enhances the functionality of UIView by providing these additional features:
 
 ### Dynamic Corner Radius 
-This class descends from UIView and provides the funcationalities to calculate a corner radius dynamically base on one of the sides. It uses the methods in HKUIViewAutoCornerExtension as a base.
+Allows you to dynamically calculate the corner radius base on one of the followings:
+
+- the width of the label
+- the height of the label
+- the length of the shorter edge of the label (width or height)
+- the length of the longer edge of the label (width or height)
+
+- Or, it can also be set to a constant
+
+This is useful for labels that change size (e.g. device rotation) or for catering to screen sizes of different devices (e.g., iPhone vs. iPad)
 
 ### Border Customization
 It also let users customize the border width, color and alpha value.
@@ -112,22 +121,27 @@ UIView+LengthCalculationBasis.swift
 
 Note that you might need to wait for the design time code to compile after setting the class.
 
-2. There will be 6 inspectable variables at the *Attribute Inspector* pane:
+2. There will be 7 inspectable variables at the *Attribute Inspector* pane:
 
 <img src="./docs/Attribute-Inspector.png" alt="attribute inspector pane screenshot">
 
-  - the first one **Auto Font Sizing** is an on/off switch to control whether automatic font sizing will be enabled.
-  - the second attribute **Auto Font Size Basis** is an integer that corresponds to the following:
+  - the 1st one **Auto Corner Rounding** is an on/off switch to control whether automatic corner radius calculation will be enabled.
+  - the 2nd attribute **Corner Rounding Basis** is an integer that corresponds to the following:
 
         1 = width of the label
         2 = height of the label
         3 = shorter edge (width or height) of the label
         4 = longer edge (width of height) of the label
+        5 = no calculation, set to a constant
         
         If this is set to any number less than 1, it will be assumed to be 1
-        If this is set to any number greater than 4, it will be assumed to be 4
+        If this is set to any number greater than 5, it will be assumed to be 5
+  - the 3rd atrribute is **Corner Radius Constant** which is a CGFloat. This is only used if the previous attribute is 5 (constant).
+  - the 4th attribute is **Corner Radius Factor** which is a CGFloat that is used to divide the chosen length in the 2nd attribute to be set as the font size. For example, if this is set to 24 and the previous attribute is 2 = height, the font size will be set to the height of the label divided by 24. Experiment to get the desired result. This attribute is not used if the 2nd attribute is set to 5 (constant).
   
-  - the third attribute is **Auto Size Font Factor** which is a decimal that is used to divide the chosen length in the previous attribute to be set as the font size. For example, if this is set to 2.0 and the previous attribute is 2 = height, the font size will be set to the height of the label divided by 2. Experiment to get the desired result.
+  - The 5th, 6th and 7th attributes are **Border Color**, **Border Alpha**, and **Border Width**. Which are self explanatory.
+  
+In this example the result is shown in the first figure on this page. A red border 
   
 3. Of course, the immediate appearance of the label might differ from the one at runtime if the label size changes.
 
@@ -137,12 +151,18 @@ Create an instance of the class and then set the attributes (see Interface Build
 
 ```
 let myView = HKUIView()
-myView.autoSizeFont = true
-myView.fontBasis = .height
-myView.autoSizeFontFactor = 2.0
+
+myView.autoCornerRounding = true
+myView.roundingBasis = .height
+myView.cornerRadiusConstant = 0.0  // not used here, only used if roundingBasis is .constant
+myView.cornerRadiusFactor = 24.0
+
+myView.borderColor = UIColor.red
+myView.borderAlpha = 1.0
+myView.borderWidth = 5.0
 ```
 
-Note that the second attribute `fontBasis` is an enumeration type that is declared in `UIView+LengthCalculationBasis.swift` as follow:
+Note that the second attribute `roundingBasis` is an enumeration type that is declared in `UIView+LengthCalculationBasis.swift` as follow:
 
 ```
 @objc public enum LengthCalculationBasis: Int {
@@ -153,8 +173,6 @@ Note that the second attribute `fontBasis` is an enumeration type that is declar
    case constant
 }
 ```
-
-However, `.constant` is not used or recognized by this class.
 
 <img src="./docs/cloudline.png" alt="---line---">
 
