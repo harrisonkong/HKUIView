@@ -141,7 +141,7 @@ Note that you might need to wait for the design time code to compile after setti
   
   - The 5th, 6th and 7th attributes are **Border Color**, **Border Alpha**, and **Border Width**. Which are self explanatory.
   
-In this example the result is shown in the first figure on this page. A red border 
+In this example the result is shown in the first figure on this page. A red border that is 5 pixels thick.
   
 3. Of course, the immediate appearance of the label might differ from the one at runtime if the label size changes.
 
